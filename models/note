@@ -1,0 +1,28 @@
+const mongoose = require('mongoose');
+
+const noteSchema = new mongoose.Schema({
+  noteTitle: {
+    type: String,
+    required: true
+  },
+  noteDescription: {
+    type: String,
+    required: true
+  },
+  notePriority: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  pinned: {
+    type: Boolean,
+    default: false
+  }
+});
+
+const Note = mongoose.model('Notes', noteSchema);
+
+module.exports = Note;
